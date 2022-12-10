@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        border: 1px solid black;
+        padding: 10px;
+      }
+
+      .divider {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="name">Nome</label>
+      <input type="text" name="name" />
+
+      <div class="divider"></div>
+
+      <label for="age">Idade</label>
+      <input type="number" name="age" />
+
+      <div class="divider"></div>
+
+      <input id="coding" name="mult" value="coding" />
+      <label for="coding"> Codificação </label>
+
+      <input id="coding" name="mult" value="coding2" />
+      <label for="coding"> Codificação 2</label>
+
+      <div class="divider"></div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script type="text/javascript">
+      const form = document.querySelector('form');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const { name, age, mult } = event.target;
+
+        console.log('==========');
+
+        console.log('name', name.value);
+        console.log('age', age.value);
+        console.log('mult', mult);
+        console.log('T age', typeof age);
+        console.log('T mult', typeof mult);
+        console.log('AF age', Array.from(age));
+        console.log('AF mult', Array.from(mult));
+      });
+    </script>
+  </body>
+</html>

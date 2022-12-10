@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        border: 1px solid black;
+        padding: 10px;
+      }
+
+      .divider {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="name">Nome</label>
+      <input type="text" name="name" />
+
+      <div class="divider"></div>
+
+      <label for="age">Idade</label>
+      <input type="number" name="age" />
+
+      <div class="divider"></div>
+
+      <select name="cars" id="cars" multiple="">
+        <option value="volvo" selected>Volvo</option>
+        <option value="saab" selected>Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+
+      <div class="divider"></div>
+
+      <fieldset>
+        <legend>Escolha seus interesses</legend>
+        <div>
+          <input id="coding" name="interesses" value="coding" multiple />
+          <label for="coding"> Codificação </label>
+        </div>
+      </fieldset>
+
+      <div class="divider"></div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script type="text/javascript">
+      const form = document.querySelector('form');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const { name, age, cars, interesses } = event.target;
+
+        console.log('==========');
+
+        console.log('name', name.value);
+        console.log('age', age.value);
+        console.log('cars', cars.value);
+        console.log('interesses', interesses);
+        console.log('interesses', Array.isArray(interesses));
+      });
+    </script>
+  </body>
+</html>
